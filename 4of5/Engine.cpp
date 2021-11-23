@@ -31,14 +31,6 @@ void Engine::input()
 	}
 }
 
-void Engine::update(float dtAsSeconds)
-{
-}
-
-void Engine::draw()
-{
-}
-
 Engine::Engine()
 {
 	//Get screen resolution and create an SGML window and view
@@ -57,7 +49,7 @@ Engine::Engine()
 	m_BGLeftView.setViewport(sf::FloatRect(0.001f, 0.001f, 0.498f, 0.998f));
 	m_BGRightView.setViewport(sf::FloatRect(0.5f, 0.001f, 0.499f, 0.998f));
 	
-	m_BackgroundTexture = TextureHolder::GetTexture("graphics/background.png");
+	m_BackgroundTexture = TextureHolder::GetTexture("assets/graphics/background.png");
 
 	//Associate the sprite with the texture
 	m_BackgroundSprite.setTexture(m_BackgroundTexture);
