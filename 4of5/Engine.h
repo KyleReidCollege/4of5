@@ -3,15 +3,23 @@
 
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
+#include "Thomas.h"
+#include "Bob.h"
 
 class Engine
 {
 private:
-#pragma region Texture Holder
+
+	//The texture holder
 	TextureHolder th;
+
+	//Thomas and his friend, Bob
+	Thomas m_Thomas;
+	Bob m_Bob;
+
 	const int TILE_SIZE = 50;
 	const int VERT_IN_QUAD = 4;
-#pragma endregion
+
 
 	//The force	pushing the characters down
 	const int GRAVITY = 300;

@@ -1,43 +1,12 @@
 #include "Engine.h"
 
-void Engine::input()
-{
-	sf::Event event;
-	while (m_Window.pollEvent(event))
-	{
-		if (event.type == sf::Event::KeyPressed)
-		{
-			//Handle the player quitting
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-			{
-				m_Window.close();
-			}
-			//Handle the player starting the game
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
-			{
-				m_IsPlaying = true;
-			}
-			//Switch between Thomas and Bob
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-			{
-				m_IsCharacter1Selected = !m_IsCharacter1Selected;
-			}
-			//Switch between full and split-screen
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-			{
-				m_IsSplitScreen = !m_IsSplitScreen;
-			}
-		}
-	}
-}
-
 Engine::Engine()
 {
-	//Get screen resolution and create an SGML window and view
+	//Get screen resolution and create an SFML window and view
 	sf::Vector2f resolution;
 	resolution.x = sf::VideoMode::getDesktopMode().width;
 	resolution.y = sf::VideoMode::getDesktopMode().height;
-	m_Window.create(sf::VideoMode(resolution.x, resolution.y), "Thomsas Was Late", sf::Style::Fullscreen);
+	m_Window.create(sf::VideoMode(resolution.x, resolution.y), "Thomas Was Late", sf::Style::Fullscreen);
 	
 	//Initialise the fullscreen view
 	m_MainView.setSize(resolution);
