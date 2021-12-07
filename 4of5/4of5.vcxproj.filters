@@ -13,37 +13,49 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Engine Files">
+      <UniqueIdentifier>{56533df9-8553-4179-ba7b-86b9d5e5c2d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player Files">
+      <UniqueIdentifier>{35f824d7-9e9f-4c4f-8911-bff8b44f2dcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Manager Files">
+      <UniqueIdentifier>{dc71a217-c319-45d8-8270-2d6bd6f09b16}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TextureHolder.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Draw.cpp">
+      <Filter>Source Files\Engine Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Update.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Draw.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine Files</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlayableCharacter.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Update.cpp">
+      <Filter>Source Files\Engine Files</Filter>
     </ClCompile>
     <ClCompile Include="Thomas.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Player Files</Filter>
     </ClCompile>
     <ClCompile Include="Bob.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Player Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayableCharacter.cpp">
+      <Filter>Source Files\Player Files</Filter>
     </ClCompile>
     <ClCompile Include="LevelManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Manager Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureHolder.cpp">
+      <Filter>Source Files\Manager Files</Filter>
+    </ClCompile>
+    <ClCompile Include="loadLevel.cpp">
+      <Filter>Source Files\Engine Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

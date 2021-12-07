@@ -50,7 +50,6 @@ int** LevelManager::nextLevel(VertexArray& rVaLevel)
 		m_StartPosition.x = 100;
 		m_StartPosition.y = 200;
 		m_BaseTimeLimit = 60.0f;
-		m_BaseTimeLimit = 60.0f;
 		break;
 	default:
 		break;

@@ -27,6 +27,9 @@ void Engine::update(float dtAsSeconds)
 		if (m_TimeRemaining <= 0)
 		{
 			m_NewLevelRequired = true;
+
+			//Load the level
+			loadLevel();
 		}
 	}//End if playing
 

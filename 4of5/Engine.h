@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
+#include "LevelManager.h"
 #include "Thomas.h"
 #include "Bob.h"
 
@@ -16,6 +17,10 @@ private:
 	//Thomas and his friend, Bob
 	Thomas m_Thomas;
 	Bob m_Bob;
+
+	//A Class reference to manage the levels
+	LevelManager m_LM;
+
 
 	const int TILE_SIZE = 50;
 	const int VERT_IN_QUAD = 4;
@@ -61,11 +66,21 @@ private:
 	float m_TimeRemaining = 10;
 	sf::Time m_GameTimeTotal;
 
+	//Vertex array for the level tiles
+	VertexArray m_VALevel;
+
+	//The 2D array with the map for the level
+	int** m_ArrayLevel = NULL;
+		
+	//Texture for the level tiles
+	Texture m_TextureFiles;
+
 #pragma region Private Functions
 	//Private function for internal use only
 	void input();
 	void update(float dtAsSeconds);
 	void draw();
+	void loadLevel();
 #pragma endregion
 
 public:
