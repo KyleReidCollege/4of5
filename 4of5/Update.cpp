@@ -10,7 +10,9 @@ void Engine::update(float dtAsSeconds)
 		//Spawn Thomas and Bob
 		m_Thomas.spawn(sf::Vector2f(0, 0), GRAVITY);
 		m_Bob.spawn(sf::Vector2f(100, 0), GRAVITY);
-		//Make sure spawn is called only once
+
+		m_TimeRemaining = 10;
+
 		m_NewLevelRequired = false;
 	}
 	if (m_IsPlaying)
