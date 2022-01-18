@@ -6,14 +6,7 @@ void Engine::update(float dtAsSeconds)
 {
 	if (m_NewLevelRequired)
 	{
-		//These calls to spawn will be moved to a new loadLevel() function soon
-		//Spawn Thomas and Bob
-		m_Thomas.spawn(sf::Vector2f(0, 0), GRAVITY);
-		m_Bob.spawn(sf::Vector2f(100, 0), GRAVITY);
-
-		m_TimeRemaining = 10;
-
-		m_NewLevelRequired = false;
+		loadLevel();
 	}
 	if (m_IsPlaying)
 	{
@@ -29,6 +22,7 @@ void Engine::update(float dtAsSeconds)
 			m_NewLevelRequired = true;
 
 			//Play a victory sound
+			m_SM.PlayReachGoal();
 		}
 		else
 		{
@@ -51,9 +45,6 @@ void Engine::update(float dtAsSeconds)
 		if (m_TimeRemaining <= 0)
 		{
 			m_NewLevelRequired = true;
-
-			//Load the level
-			loadLevel();
 		}
 	}//End if playing
 
@@ -73,6 +64,21 @@ void Engine::update(float dtAsSeconds)
 		else
 		{
 			m_MainView.setCenter(m_Bob.getCentre());
+		}
+	}
+
+	vector<Vector2f>::iterator it;
+
+	for (it = m_FireEmitters.begin(); it != m_FireEmitters.end(); it++)
+	{
+		float posX = (*it).x;
+		float posY = (*it).y;
+
+		FloatRect localRect(posX - 250, posY - 250, 500, 500);
+
+		if (m_Thomas.getPosition().intersects(localRect))
+		{
+			m_SM.PlayFire(Vector2f(posX, posY), m_Thomas.getCentre());
 		}
 	}
 }

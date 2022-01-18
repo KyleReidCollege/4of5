@@ -6,7 +6,6 @@
 class PlayableCharacter
 {
 protected:
-#pragma region Protected Variables
 	//Of course we will need a sprite
 	sf::Sprite m_Sprite;
 
@@ -26,12 +25,10 @@ protected:
 
 	//Has the player just initiated a jump?
 	bool m_JustJumped = false;
-#pragma endregion
 
 	//Private variables and functions come next
 
 private:
-#pragma region Private Variables
 	//What is gravity?
 	float m_Gravity;
 
@@ -49,12 +46,10 @@ private:
 
 	//And a texture
 	sf::Texture m_Texture;
-#pragma endregion
 
 	//All out public functions will come next
 
 public:
-#pragma region Public Variables
 	void spawn(sf::Vector2f startPosition, float gravity);
 
 	//This is a pure virtual function
@@ -84,7 +79,6 @@ public:
 
 	//We will call this function once every frame
 	void update(float elapsedTime);
-#pragma endregion
 
 	//End of the class
 };

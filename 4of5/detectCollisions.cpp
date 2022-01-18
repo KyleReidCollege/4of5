@@ -53,10 +53,12 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 					if (m_ArrayLevel[y][x] == 2) //Fire. buuuurrnn!
 					{
 						//Play a sound
+						m_SM.PlayFallInFire();
 					}
 					else //Water gurgle
 					{
 						//Play a sound
+						m_SM.PlayFallInWater();
 					}
 				}
 			}

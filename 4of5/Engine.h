@@ -4,9 +4,11 @@
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
 #include "LevelManager.h"
-//#include "PlayableCharacter.h"
+#include "SoundManager.h"
 #include "Thomas.h"
 #include "Bob.h"
+
+using namespace sf;
 
 class Engine
 {
@@ -19,8 +21,11 @@ private:
 	Thomas m_Thomas;
 	Bob m_Bob;
 
-	//A Class reference to manage the levels
+	//A class reference to manage the levels
 	LevelManager m_LM;
+
+	//A class reference to manage sounds
+	SoundManager m_SM;
 
 
 	const int TILE_SIZE = 50;
@@ -30,24 +35,24 @@ private:
 	//The force	pushing the characters down
 	const int GRAVITY = 300;
 
-	sf::RenderWindow m_Window;
+	RenderWindow m_Window;
 
 #pragma region Views
 	//The main views
-	sf::View m_MainView;
-	sf::View m_LeftView;
-	sf::View m_RightView;
+	View m_MainView;
+	View m_LeftView;
+	View m_RightView;
 
 	//Three view for the background and  and one HUD view
-	sf::View m_BGMainView;
-	sf::View m_BGLeftView;
-	sf::View m_BGRightView;
-	sf::View m_HUDView;
+	View m_BGMainView;
+	View m_BGLeftView;
+	View m_BGRightView;
+	View m_HUDView;
 #pragma endregion
 
 	//Background sprite and texture
-	sf::Sprite m_BackgroundSprite;
-	sf::Texture m_BackgroundTexture;
+	Sprite m_BackgroundSprite;
+	Texture m_BackgroundTexture;
 
 #pragma region Booleans
 	//True Booleans
@@ -65,16 +70,18 @@ private:
 
 	//Time left in current level
 	float m_TimeRemaining = 10;
-	sf::Time m_GameTimeTotal;
+	Time m_GameTimeTotal;
 
 	//Vertex array for the level tiles
 	VertexArray m_VALevel;
 
 	//The 2D array with the map for the level
 	int** m_ArrayLevel = NULL;
-		
+
 	//Texture for the level tiles
 	Texture m_TextureFiles;
+
+	vector <Vector2f> m_FireEmitters;
 
 #pragma region Private Functions
 	//Private function for internal use only
@@ -82,6 +89,7 @@ private:
 	void update(float dtAsSeconds);
 	void draw();
 	void loadLevel();
+	void populateEmitters(vector<Vector2f>& vSoundEmitters, int** arrayLevel);
 	bool detectCollisions(PlayableCharacter& character);
 #pragma endregion
 

@@ -33,11 +33,13 @@ void Engine::input()
 	if (m_Thomas.handleInput())
 	{
 		//Play a jump sound
+		m_SM.PlayJump();
 	}
 
 	//Handle input specific to Bob
 	if (m_Bob.handleInput())
 	{
 		//Play a jump sound
+		m_SM.PlayJump();
 	}
 }
