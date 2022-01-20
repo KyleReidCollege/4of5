@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include <SFML/Graphics.hpp>
 #include <sstream>
+#include <iostream>
 
 void Engine::update(float dtAsSeconds)
 {
@@ -65,6 +66,21 @@ void Engine::update(float dtAsSeconds)
 		{
 			m_MainView.setCenter(m_Bob.getCentre());
 		}
+	}
+
+	m_FramesSinceLastHudUpdate++;
+	if (m_FramesSinceLastHudUpdate > m_TargetFramesPerHudUpdate)
+	{
+		stringstream ssTime;
+		stringstream ssLevel;
+
+		ssTime << (int)m_TimeRemaining;
+		m_Hud.setTime(ssTime.str());
+
+		ssLevel << "Level: " << m_LM.getCurrentLevel();
+		m_Hud.setLevel(ssLevel.str());
+
+		m_FramesSinceLastHudUpdate = 0;
 	}
 
 	vector<Vector2f>::iterator it;

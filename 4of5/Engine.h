@@ -7,6 +7,7 @@
 #include "SoundManager.h"
 #include "Thomas.h"
 #include "Bob.h"
+#include "HUD.h"
 
 using namespace sf;
 
@@ -26,6 +27,11 @@ private:
 
 	//A class reference to manage sounds
 	SoundManager m_SM;
+
+	//The HUD
+	Hud m_Hud;
+	int m_FramesSinceLastHudUpdate = 0;
+	int m_TargetFramesPerHudUpdate = 500;
 
 
 	const int TILE_SIZE = 50;
